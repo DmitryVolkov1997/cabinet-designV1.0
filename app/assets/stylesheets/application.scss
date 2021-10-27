@@ -135,7 +135,18 @@ a:hover {
 }
 
 .personal-card__title {
-	
+	position: relative;
+}
+
+.personal-card__title::before {
+	content: "";
+	position: absolute;
+	top: -75px;
+	left: 0;
+	background: image-url("form-title-logo.png") no-repeat;
+	background-size: cover;
+	width: 197px;
+	height: 137px;
 }
 
 .personal-card__info {
@@ -217,3 +228,84 @@ a:hover {
 .personal-card__list {}
 
 .personal-card__item {}
+
+@media(max-width:1300px) {
+	.container::before {
+		background-image: none;
+	}
+}
+
+@media(max-width:1024px) {
+	.content__row {
+		flex-direction: column;
+	}
+
+	.personal-card {
+		margin: 2rem 0rem 2rem 0rem;
+	}
+
+	.row {
+		justify-content: center;
+	}
+
+	.personal-card__header {
+		justify-content: center;
+	}
+
+	.personal-card__info {
+		display: none;
+	}
+
+	.content__right-box {
+		margin: 2rem 0rem 0rem 0rem;
+	}
+
+	.content__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.content__list-item {
+		width: 45%;
+	}
+}
+
+@media(max-width:800px) {
+	.col-4 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+
+	.col-8 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.personal-card__bottom {
+		font-size: 1rem;
+	}
+
+	.content__list-link {
+		padding: 0.5em;
+	}
+}
+
+@media(max-width:500px) {
+	.content__list-item {
+		width: 100%;
+	}
+
+	.content__right-info {
+		font-size: 1.6rem;
+		line-height: 1.8rem;
+	}
+
+	.content__list-link {
+		font-size: 1.2rem;
+	}
+
+	.personal-card__bottom {
+		margin-top: 0;
+	}
+}

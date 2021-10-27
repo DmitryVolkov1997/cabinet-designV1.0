@@ -8,6 +8,9 @@ ActiveAdmin.register Request do
     column :last_name do |request|
       request.user.last_name
     end
+    column :patronymic do |request|
+      request.user.patronymic
+    end
     column :email do |request|
       request.user.email
     end
@@ -43,7 +46,7 @@ ActiveAdmin.register Request do
     end
   end
 
-  config.xls_builder.i18n_scope = [:activerecord, :attributes, :request]
+  config.xls_builder.i18n_scope = %i[activerecord attributes request]
   config.xls_builder.header_format = { weight: :bold, color: :blue }
 
   # config.xls_builder.only_columns :first_name,
@@ -59,13 +62,17 @@ ActiveAdmin.register Request do
   # :language,
   # :subject,
   # :question
-  
+
   config.xls_builder.column('first_name') do |request|
     request.user.first_name
   end
 
   config.xls_builder.column('last_name') do |request|
     request.user.last_name
+  end
+
+  config.xls_builder.column('patronymic') do |request|
+    request.user.patronymic
   end
 
   config.xls_builder.column('email') do |request|
@@ -75,19 +82,19 @@ ActiveAdmin.register Request do
   config.xls_builder.column('phone') do |request|
     request.user.phone
   end
-  
+
   config.xls_builder.column('city') do |request|
     request.institution.city.name
   end
-  
+
   config.xls_builder.column('institution_type') do |request|
     request.institution.institution_type.name
   end
-  
+
   config.xls_builder.column('institution') do |request|
     request.institution.name
   end
-  
+
   config.xls_builder.column('education_program') do |request|
     request.education_program.name
   end
@@ -95,7 +102,7 @@ ActiveAdmin.register Request do
   config.xls_builder.column('education_form') do |request|
     request.education_program.education_form.name
   end
-  
+
   config.xls_builder.column('department') do |request|
     request.department.name
   end
@@ -114,33 +121,32 @@ ActiveAdmin.register Request do
 
   config.xls_builder.delete_columns :id, :created_at, :updated_at, :isDeleted, :question
 
-      # Request.column_names.each do |c|
-      #   column c.to_sym
-      # end
+  # Request.column_names.each do |c|
+  #   column c.to_sym
+  # end
 
   # permit_params :question
 
   # action_item :add do
   #   link_to "Add Event", '/', method: :post
   # end
-  
+
   # index do
-    # # define your columns
+  # # define your columns
 
-    # # now define the links...
-    # column :links do |resource|
-      # links = ''.html_safe
-      # if controller.action_methods.include?('show') and controller.current_ability.can?(:read, resource)
-        # links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link view_link"
-      # end
-      # if controller.action_methods.include?('edit') and controller.current_ability.can?(:edit, resource)
-        # links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
-      # end
-      # if controller.action_methods.include?('destroy') and controller.current_ability.can?(:destroy, resource)
-        # links += link_to I18n.t('active_admin.delete'), resource_path(resource), :method => :delete, :confirm => I18n.t('active_admin.delete_confirmation'), :class => "member_link delete_link"
-      # end
-      # links
-    # end
+  # # now define the links...
+  # column :links do |resource|
+  # links = ''.html_safe
+  # if controller.action_methods.include?('show') and controller.current_ability.can?(:read, resource)
+  # links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link view_link"
   # end
-
+  # if controller.action_methods.include?('edit') and controller.current_ability.can?(:edit, resource)
+  # links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
+  # end
+  # if controller.action_methods.include?('destroy') and controller.current_ability.can?(:destroy, resource)
+  # links += link_to I18n.t('active_admin.delete'), resource_path(resource), :method => :delete, :confirm => I18n.t('active_admin.delete_confirmation'), :class => "member_link delete_link"
+  # end
+  # links
+  # end
+  # end
 end

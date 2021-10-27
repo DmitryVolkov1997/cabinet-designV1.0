@@ -19,7 +19,7 @@ class HomeController < ApplicationController
     # )
     save_successful = false
 
-    # return if Switch.first.is_active == false  расскоментировать
+    return if Switch.first.is_active == false  
 
     Request.transaction do
       # @user = User.find_or_create_by(

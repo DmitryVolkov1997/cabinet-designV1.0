@@ -8,7 +8,7 @@ ActiveAdmin.register User do
 
                                        color: :blue }
 
-  config.xls_builder.delete_columns :id, :created_at, :updated_at
+  config.xls_builder.delete_columns :id,  :first_name, :last_name, :patronymic, :email, :phone, :created_at, :updated_at
 
   config.xls_builder.column('first_name') do |user|
 

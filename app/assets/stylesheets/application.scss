@@ -225,9 +225,15 @@ a:hover {
 	margin-bottom: 0;
 }
 
-.personal-card__list {}
+.personal-card__list {
+	margin-bottom: 0;
+}
 
 .personal-card__item {}
+
+.personal-card__info-text {
+	color: red;
+}
 
 @media(max-width:1300px) {
 	.container::before {
